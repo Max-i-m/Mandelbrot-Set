@@ -6,16 +6,114 @@
     <title>Mandelbrot Set | Julia Fractal</title>
     <script src="../js/fractal.js"></script>
 
-    <style>       
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+
         canvas{
             position: absolute;
             border: 2px solid black;
-            border-radius: 10px;
+ 
+        }
+
+        #inputs{
+            position: absolute;
+            top: 730px;
+        }
+
+        .row{
+            margin-bottom: 8px;
+        }
+
+        #inputs label{
+            display: inline-block;
+            width: 200px;
+        }
+
+        #inputs [type=number]{
+            width: 200px;
         }
     </style>
 </head>
 <body>
-    <canvas id="setCanvas" width="900" height="900"></canvas>
-    <canvas id="canvas" width="900" height="900"></canvas>
+    <div id="canvases">
+        <canvas id="setCanvas" width="700" height="700"></canvas>
+        <canvas id="lineCanvas" width="700" height="700"></canvas>
+    </div>
+
+    <div id="inputs">
+        <div class="row">
+            <label></label>
+            <input id="zoomIn" type="button" value="Zoom In"/>    
+            <input id="zoomOut" type="button" value="Zoom Out"/>
+        </div>
+
+        <div class="row">
+            <label for="exponent">Exponent</label>
+            <select id="exponent">
+                <option value="2" selected="selected">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <label for="color">Color Type</label>
+            <select id="color">
+                <option value="rainbow" selected="selected">Rainbow</option>
+                <option value="water">Water</option>
+                <option value="coffee">Coffee</option>
+                <option value="magma">Magma</option>
+                <option value="forest">Forest</option>
+                <option value="ice">Ice</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <label>Smoothness</label>
+            <input id="smooth" type="checkbox"/>
+        </div>
+
+        <div class="row">
+            <label for="centerReal">Center Real</label>
+            <input id="centerReal" type="number" min="-1" max="1" value="0"/>
+        </div>
+        
+        <div class="row">
+            <label for="centerImagenary">Center Imagenary</label>
+            <input id="centerImagenary" type="number" min="-1" max="1" value="0"/>
+        </div>
+        
+        <!--<div class="row">
+            <label for="scale">Scale</label>
+            <input id="scale" type="number" min="0" max="100" value="1"/>
+        </div>-->
+
+        <div class="row">
+            <label for="iterations">Iterations</label>
+            <input id="iterations" type="number" min="50" max="10000" value="200"/>
+        </div>
+        
+        <div class="row">
+            <label for="line">Line</label>
+            <input id="line" type="checkbox"/>
+        </div>
+
+        <div class="row">
+            <label></label>
+            <input id="reset" type="button" value="Reset"/>
+        </div>
+    </div>
 </body>
 </html>
